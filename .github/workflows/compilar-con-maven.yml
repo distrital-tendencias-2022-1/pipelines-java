@@ -35,6 +35,7 @@ jobs:
   compilar-y-probar:
 
     # se ejecutan en ubuntu
+    needs: [compilar]
     runs-on: ubuntu-latest
 
     steps:
