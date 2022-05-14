@@ -13,7 +13,26 @@ on:
 jobs:
 
   # varias tareas -- solo una "build"
-  build:
+  compilar:
+
+    # se ejecutan en ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: descargar el código fuente
+      uses: actions/checkout@v3
+      
+    - name: configura Java con el JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+        
+    - name: Compilar utilizando Maven
+      run: mvn -B package --file pom.xml
+
+  compilar-y-probar:
 
     # se ejecutan en ubuntu
     runs-on: ubuntu-latest
