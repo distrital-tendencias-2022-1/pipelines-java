@@ -50,3 +50,6 @@ jobs:
         
     - name: Compilar utilizando Maven
       run: mvn -B package --file pom.xml
+      
+    - name: Ejecutar las pruebas
+      run: mvn test --file pom.xml
